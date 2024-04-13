@@ -29,18 +29,50 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  let yourName = variables.name == null ? "Lucy" : `${variables.name}`;
+
+  let yourLastName =
+    variables.lastName == null ? "Boilett" : `${variables.lastName}`;
+
+  let yourProfession =
+    variables.role == null ? "Web Developer" : `${variables.role}`;
+
+  let yourCity = variables.city == null ? "Miami" : `${variables.city}`;
+
+  let yourCountry = variables.country == null ? "USA" : `${variables.country}`;
+
+  let yourTwitter =
+    variables.twitter == null
+      ? "https://twitter.com/"
+      : `https://twitter.com/${variables.twitter}`;
+
+  let yourGithub =
+    variables.github == null
+      ? "https://github.com/"
+      : `https://github.com/${variables.github}`;
+
+  let yourLinkedin =
+    variables.linkedin == null
+      ? "https://linkedin.com/"
+      : `https://linkedin.com/${variables.linkedin}`;
+
+  let yourInstagram =
+    variables.linkedin == null
+      ? "https://instagram.com/"
+      : `https://instagram.com/${variables.instagram}`;
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${yourName} ${yourLastName}</h1>
+          <h2> ${yourProfession}</h2>
+          <h3>${yourCity} ${yourCountry}</h3>
+          <ul class=${variables.socialMediaPosition}>
+            <li><a href=${yourTwitter}><i class="fab fa-twitter"></i></a></li>
+            <li><a href=${yourGithub}><i class="fab fa-github"></i></a></li>
+            <li><a href=${yourLinkedin}><i class="fab fa-linkedin"></i></a></li>
+            <li><a href=${yourInstagram}><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
